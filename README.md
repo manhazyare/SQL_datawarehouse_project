@@ -1,10 +1,8 @@
-# SQL_datawarehouse_project
-
-
 # Data Warehouse and Analytics Project
 
 Welcome to the Data Warehouse and Analytics Project repository! 🚀
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a scalable data warehouse to generating actionable business insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics. 
+This project demonstrates a comprehensive data warehousing and analytics solution, from building a scalable data warehouse to generating actionable business insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+
 ---
 
 # 🏗️ Data Architecture
@@ -13,7 +11,7 @@ The project follows the Medallion Architecture approach using three layers:
 
 1. **Bronze Layer** — Stores raw data directly from source systems.
 2. **Silver Layer** — Cleanses, standardizes, and transforms data for analysis.
-3. **Gold Layer** — Provides business-ready data optimized for reporting and analytics. ([GitHub][1])
+3. **Gold Layer** — Provides business-ready data optimized for reporting and analytics.
 
 ---
 
@@ -37,8 +35,6 @@ This project includes:
 * Data Warehousing
 * Data Analytics
 
-([GitHub][1])
-
 ---
 
 # 🚀 Project Requirements
@@ -57,8 +53,6 @@ Develop a modern SQL-based data warehouse to consolidate business data for analy
 * **Data Modeling:** Implement fact and dimension tables using star schema design.
 * **Documentation:** Provide clear and maintainable project documentation.
 
-([GitHub][1])
-
 ---
 
 # 📊 BI: Analytics & Reporting (Data Analytics)
@@ -73,7 +67,7 @@ Develop SQL-based analytics to deliver detailed insights into:
 * Revenue Analysis
 * KPI Monitoring
 
-These insights help stakeholders make strategic and data-driven decisions. ([GitHub][1])
+These insights help stakeholders make strategic and data-driven decisions.
 
 ---
 
@@ -88,14 +82,12 @@ These insights help stakeholders make strategic and data-driven decisions. ([Git
 * Apache Airflow
 * Draw.io
 
-([GitHub][2])
-
 ---
 
 # 📂 Repository Structure
 
-```bash
-data-warehouse-project/
+```bash id="6r9o3d"
+SQL_datawarehouse_project/
 │
 ├── datasets/              # Raw source data
 ├── docs/                  # Documentation and diagrams
@@ -111,27 +103,25 @@ data-warehouse-project/
 └── requirements.txt
 ```
 
-([GitHub][2])
-
 ---
 
 # ⚙️ Setup & Installation
 
 ## Clone Repository
 
-```bash
+```bash id="bfc3b6"
 git clone https://github.com/manhazyare/SQL_datawarehouse_project.git
 ```
 
 ## Navigate to Project
 
-```bash
+```bash id="ul9d7s"
 cd SQL_datawarehouse_project
 ```
 
 ## Install Dependencies
 
-```bash
+```bash id="dwhpyq"
 pip install -r requirements.txt
 ```
 
@@ -165,7 +155,4 @@ I am passionate about Data Engineering, Analytics, and building scalable data so
 
 # 🔗 GitHub Repository
 
-[SQL_datawarehouse_project](https://github.com/manhazyare/SQL_datawarehouse_project?utm_source=chatgpt.com)
-
-[1]: https://github.com/DataWithBaraa/sql-data-warehouse-project?utm_source=chatgpt.com "GitHub - DataWithBaraa/sql-data-warehouse-project: A comprehensive guide to building a modern data warehouse with SQL Server, including ETL processes, data modeling, and analytics."
-[2]: https://github.com/Rudra-G-23/SQL-Data-Warehouse-Project?utm_source=chatgpt.com "GitHub - Rudra-G-23/SQL-Data-Warehouse-Project: This repo provides a step-by-step approach to building a modern data warehouse using PostgreSQL. It covers the ETL (Extract, Transform, Load) process, data modeling, exploratory data analysis (EDA), and advanced data analysis techniques."
+[https://github.com/manhazyare/SQL_datawarehouse_project](https://github.com/manhazyare/SQL_datawarehouse_project)
