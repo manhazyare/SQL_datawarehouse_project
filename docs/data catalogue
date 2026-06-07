@@ -1,0 +1,119 @@
+Data Dictionary for Gold Layer
+Overview
+
+The Gold Layer is the business-level data representation, structured to support analytical and reporting use cases. It consists of dimension tables and fact tables designed to support business intelligence, reporting, and decision-making processes.
+
+1. gold.dim_customers
+
+Purpose: Stores customer details enriched with demographic and geographic data.
+
+Column Name	Data Type	Description
+customer_key	INT	Surrogate key uniquely identifying each customer record in the dimension table.
+customer_id	INT	Unique numerical identifier assigned to each customer.
+customer_number	NVARCHAR(50)	Alphanumeric identifier representing the customer, used for tracking and referencing.
+first_name	NVARCHAR(50)	The customer's first name, as recorded in the system.
+last_name	NVARCHAR(50)	The customer's last name or family name.
+country	NVARCHAR(50)	The country of residence for the customer (e.g., Australia).
+marital_status	NVARCHAR(50)	The marital status of the customer (e.g., "Married", "Single").
+gender	NVARCHAR(50)	The gender of the customer (e.g., "Male", "Female", "n/a").
+birth_date	DATE	The date of birth of the customer, formatted as YYYY-MM-DD.
+create_date	DATE	The date and time when the customer record was created in the system.
+2. gold.dim_products
+
+Purpose: Provides information about the products and their attributes.
+
+Column Name	Data Type	Description
+product_key	INT	Surrogate key uniquely identifying each product record in the product dimension table.
+product_id	INT	A unique identifier assigned to the product for internal tracking and referencing.
+product_number	NVARCHAR(50)	A structured alphanumeric code representing the product, often used for categorization or inventory management.
+product_name	NVARCHAR(50)	Descriptive name of the product, including key details such as type, color, and size.
+category_id	NVARCHAR(50)	A unique identifier for the product's category.
+category	NVARCHAR(50)	The broader classification of the product (e.g., Bikes, Components).
+subcategory	NVARCHAR(50)	A more detailed classification of the product within the category.
+maintenance_required	NVARCHAR(50)	Indicates whether the product requires maintenance (e.g., "Yes", "No").
+cost	INT	The cost or base price of the product, measured in monetary units.
+product_line	NVARCHAR(50)	The specific product line or series to which the product belongs (e.g., Road, Mountain).
+start_date	DATE	The date when the product became available for sale or use.
+3. gold.fact_sales
+
+Purpose: Stores transactional sales data and links customers and products through dimension tables. This table serves as the central fact table for sales analytics and reporting.
+
+Column Name	Data Type	Description
+order_number	NVARCHAR(50)	Unique identifier assigned to each sales order.
+product_key	INT	Foreign key referencing the product dimension table (gold.dim_products).
+customer_key	INT	Foreign key referencing the customer dimension table (gold.dim_customers).
+order_date	DATE	The date on which the order was placed by the customer.
+shipping_date	DATE	The date on which the order was shipped to the customer.
+due_date	DATE	The expected delivery or due date for the order.
+sales_amount	DECIMAL(18,2)	Total revenue generated from the sale transaction.
+quantity	INT	Number of product units sold.
+price	DECIMAL(18,2)	Selling price per unit at the time of the transaction.
+Gold Layer Data Model
+Business Purpose
+
+The Gold Layer provides a clean, business-oriented data model optimized for:
+
+Business Intelligence (BI)
+Executive Reporting
+Dashboard Development
+KPI Monitoring
+Sales Analytics
+Customer Analytics
+Product Performance Analysis
+Dimension Tables
+gold.dim_customers
+
+Contains customer demographic and geographic information.
+
+Primary Key: customer_key
+
+gold.dim_products
+
+Contains product master data and product attributes.
+
+Primary Key: product_key
+
+Fact Table
+gold.fact_sales
+
+Contains measurable business events related to sales transactions.
+
+Primary Key:
+
+No primary key (transactional fact table)
+
+Foreign Keys:
+
+customer_key → gold.dim_customers.customer_key
+product_key → gold.dim_products.product_key
+
+Measures:
+
+sales_amount
+quantity
+price
+Star Schema
+                     gold.dim_customers
+                     ------------------
+                     customer_key (PK)
+                            |
+                            |
+                            |
+                            |
+gold.dim_products      gold.fact_sales
+------------------     -------------------------
+product_key (PK) ----> product_key (FK)
+                       customer_key (FK)
+                       order_number
+                       order_date
+                       shipping_date
+                       due_date
+                       sales_amount
+                       quantity
+                       price
+                            ^
+                            |
+                            |
+                     customer_key (PK)
+                     ------------------
+                     gold.dim_customers
